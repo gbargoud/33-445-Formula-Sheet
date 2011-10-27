@@ -11,5 +11,8 @@ force:
 %.pdf: %.tex 
 	pdflatex $<
 
-edit: force open
+edit: open force
 	vim formula-sheet.tex
+
+push: pdf
+	git push -u origin master

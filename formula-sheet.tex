@@ -3,11 +3,85 @@
 \usepackage{fullpage}
 \usepackage{amsmath}
 
-\addtolength{\textheight}{2in}
-\addtolength{\topmargin}{-1in}
+\addtolength{\textheight}{1in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+
+% Useful commands
+\newcommand{\bra}[1]{\ensuremath{\langle#1\mid}}
+\newcommand{\ket}[1]{\ensuremath{\mid#1\rangle}}
+\newcommand{\braket}[2]{\ensuremath{\langle#1\mid#2\rangle}}
+\newcommand{\expect}[1]{\ensuremath{\langle#1\rangle}}
+% Operator
+\newcommand{\op}[1]{\ensuremath{\hat#1}}
+% Operator transpose
+\newcommand{\opt}[1]{\ensuremath{\hat#1^\dagger}}
+% Matrix, separate rows by \\ and columns by &
+\newcommand{\mat}[1]{\ensuremath{\begin{pmatrix}\ensuremath{#1}\end{pmatrix}}}
 
 \begin{document}
 	\begin{center}
-		33-445 Formula Sheet
+		{\LARGE{33-445 Formula Sheet}}
 	\end{center}
+	% General properties of operators
+	\section*{Operator Properties}
+	\begin{align*}
+		\expect{\op{A}}&=\bra{\psi}\op{A}\ket{\psi} &
+		\Delta\op{A}&=\sqrt{\expect{\op{A}^2}-\expect{\op{A}}^2} &
+		\op{U}\opt{U}&=1 & 
+		[\op{A},\op{B}]&=\op{A}\op{B}-\op{B}\op{A} &
+		\Delta\op{A}\Delta\op{B}&\ge\expect{\frac{[\op{A},\op{B}]}{2i}}
+	\end{align*}
+	% Spin 1/2 operators and basis vectors
+	\section*{All spins}
+	\[\vec{n}=\sin\theta\cos\varphi\vec{i}+
+			\sin\theta\sin\varphi\vec{j}+\cos\theta\vec{k}\]
+	\begin{align*}
+		z&:\theta=0 & 
+		x&:\theta=\frac{\pi}{2},\varphi=0 &
+		y&:\theta=\frac{\pi}{2},\varphi=\frac{\pi}{2} &
+		[\op{S_x},\op{S_y}]&=i\hbar\op{S_z} &
+		[\op{S_y},\op{S_z}]&=i\hbar\op{S_x} &
+		[\op{S_z},\op{S_x}]&=i\hbar\op{S_y}
+	\end{align*}
+	\section*{Spin $\frac{1}{2}$ (electrons)}
+	\begin{align*}
+		\ket{+n}&=\mat{\cos\frac{\theta}{2}\\
+			\sin\frac{\theta}{2}e^{i\varphi}} &
+		\ket{-n}&=\mat{\sin\frac{\theta}{2}\\
+			-\cos\frac{\theta}{2}e^{-i\varphi}} &
+		\op{S_n}&=\frac{\hbar}{2}\mat{\cos\theta&\sin\theta e^{-i\varphi}\\
+			\sin\theta e^{i\varphi}&-\cos\theta} \\
+	%	\ket{+z}&=\mat{1\\0} &
+	%	\ket{-z}&=\mat{0\\1} &
+	%	\op{S_z}&=\frac{\hbar}{2}\mat{1&0\\0&-1} \\
+	%	\ket{+x}&=\frac{1}{\sqrt{2}}\mat{1\\1} &
+	%	\ket{-x}&=\frac{1}{\sqrt{2}}\mat{1\\-1} &
+	%	\op{S_x}&=\frac{\hbar}{2}\mat{0&1\\1&0} \\
+	%	\ket{+y}&=\frac{1}{\sqrt{2}}\mat{1\\i} &
+	%	\ket{-y}&=\frac{1}{\sqrt{2}}\mat{1\\-i} &
+	%	\op{S_y}&=\frac{\hbar}{2}\mat{0&i\\-i&0}
+	\end{align*}
+	% Spin 1 photon operators and basis vectors
+	\section*{Spin $1$ (Photons)}
+	\begin{align*}
+		\ket{X'}&=\cos\varphi\ket{X}+\sin\varphi\ket{Y} &
+		\ket{R}&=\frac{1}{\sqrt{2}}(\ket{X}+i\ket{Y}) &
+		\op{R\varphi\vec{k}}\ket{R}&=e^{i\varphi}\ket{R} &
+		\op{J_z}\ket{R}&=\hbar\ket{R} \\
+		\ket{Y'}&=-\sin\varphi\ket{X}+\cos\varphi\ket{Y} &
+		\ket{L}&=\frac{1}{\sqrt{2}}(\ket{X}-i\ket{Y}) &
+		\op{R\varphi\vec{k}}\ket{L}&=e^{i\varphi}\ket{L} &
+		\op{J_z}\ket{L}&=-\hbar\ket{L}
+	\end{align*}
+	% Spin 1 operators and basis
+	\section*{Spin $1$ (General)}
+	\begin{align*}
+	\end{align*}
+	% Hamiltonian properties
+	\section*{Hamiltonian}
+	\begin{align*}
+	\end{align*}
 \end{document}
