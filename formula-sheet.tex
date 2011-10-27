@@ -9,6 +9,10 @@
 \addtolength{\oddsidemargin}{-0.5in}
 \addtolength{\textwidth}{1in}
 
+\newcommand{\mysection}[1]{\vspace{-2em}
+\section*{#1}
+\vspace{-2em}}
+
 % Useful commands
 \newcommand{\bra}[1]{\ensuremath{\langle#1\mid}}
 \newcommand{\ket}[1]{\ensuremath{\mid#1\rangle}}
@@ -16,17 +20,19 @@
 \newcommand{\expect}[1]{\ensuremath{\langle#1\rangle}}
 % Operator
 \newcommand{\op}[1]{\ensuremath{\hat#1}}
-% Operator transpose
-\newcommand{\opt}[1]{\ensuremath{\hat#1^\dagger}}
+\newcommand{\opt}[1]{\tp{\op{#1}}}
+% Transpose
+\newcommand{\tp}[1]{\ensuremath{#1^\dagger}}
 % Matrix, separate rows by \\ and columns by &
 \newcommand{\mat}[1]{\ensuremath{\begin{pmatrix}\ensuremath{#1}\end{pmatrix}}}
 
+\newcommand{\secend}{\vspace{-2em}}
 \begin{document}
 	\begin{center}
 		{\LARGE{33-445 Formula Sheet}}
 	\end{center}
 	% General properties of operators
-	\section*{Operator Properties}
+	\mysection{Operator Properties}
 	\begin{align*}
 		\expect{\op{A}}&=\bra{\psi}\op{A}\ket{\psi} &
 		\Delta\op{A}&=\sqrt{\expect{\op{A}^2}-\expect{\op{A}}^2} &
@@ -34,8 +40,17 @@
 		[\op{A},\op{B}]&=\op{A}\op{B}-\op{B}\op{A} &
 		\Delta\op{A}\Delta\op{B}&\ge\expect{\frac{[\op{A},\op{B}]}{2i}}
 	\end{align*}
+	% Properties of bra and ket
+	\mysection{Vector Properties}
+	\begin{align*}
+		\braket{\psi}{\psi}=1 &
+		\braket{a_i}{a_j}&=\delta_{ij} &
+		\op{A}\ket{\psi}&=\tp{\bra{\psi}}\opt{A} &
+		\ket{\psi}&=\sum\limits_nc_n\ket{a_n}=\mat{c_1\\\vdots\\c_n} &
+		\bra{\psi}&=\sum\limits_n\tp{c_n}\bra{a_n}=\mat{\tp{c_1}&\dots&\tp{c_n}}
+	\end{align*}
 	% Spin 1/2 operators and basis vectors
-	\section*{All spins}
+	\mysection{All spins}
 	\[\vec{n}=\sin\theta\cos\varphi\vec{i}+
 			\sin\theta\sin\varphi\vec{j}+\cos\theta\vec{k}\]
 	\begin{align*}
@@ -46,7 +61,7 @@
 		[\op{S_y},\op{S_z}]&=i\hbar\op{S_x} &
 		[\op{S_z},\op{S_x}]&=i\hbar\op{S_y}
 	\end{align*}
-	\section*{Spin $\frac{1}{2}$ (electrons)}
+	\mysection{Spin $\frac{1}{2}$ (Electrons)}
 	\begin{align*}
 		\ket{+n}&=\mat{\cos\frac{\theta}{2}\\
 			\sin\frac{\theta}{2}e^{i\varphi}} &
@@ -65,19 +80,19 @@
 	%	\op{S_y}&=\frac{\hbar}{2}\mat{0&i\\-i&0}
 	\end{align*}
 	% Spin 1 photon operators and basis vectors
-	\section*{Spin $1$ (Photons)}
+	\mysection{Spin $1$ (Photons)}
 	\begin{align*}
-		\ket{X'}&=\cos\varphi\ket{X}+\sin\varphi\ket{Y} &
+		\ket{X'}&=\cos\phi\ket{X}+\sin\phi\ket{Y} &
 		\ket{R}&=\frac{1}{\sqrt{2}}(\ket{X}+i\ket{Y}) &
-		\op{R\varphi\vec{k}}\ket{R}&=e^{i\varphi}\ket{R} &
+		\op{R\phi\vec{k}}\ket{R}&=e^{i\phi}\ket{R} &
 		\op{J_z}\ket{R}&=\hbar\ket{R} \\
-		\ket{Y'}&=-\sin\varphi\ket{X}+\cos\varphi\ket{Y} &
+		\ket{Y'}&=-\sin\phi\ket{X}+\cos\phi\ket{Y} &
 		\ket{L}&=\frac{1}{\sqrt{2}}(\ket{X}-i\ket{Y}) &
-		\op{R\varphi\vec{k}}\ket{L}&=e^{i\varphi}\ket{L} &
+		\op{R\phi\vec{k}}\ket{L}&=e^{i\phi}\ket{L} &
 		\op{J_z}\ket{L}&=-\hbar\ket{L}
 	\end{align*}
 	% Spin 1 operators and basis
-	\section*{Spin $1$ (General)}
+	\mysection{Spin $1$ (General)}
 	\begin{align*}
 		\ket{1,1}_n&=\mat{e^{-i\varphi}\frac{1+\cos\theta}{2}\\
 			\frac{\sin\theta}{\sqrt2}\\
@@ -94,7 +109,7 @@
 			0&\frac{e^{i\varphi}\sin\theta}{\sqrt2}&-\cos\theta}
 	\end{align*}
 	% Hamiltonian properties
-	\section*{Hamiltonian}
+	\mysection{Hamiltonian}
 	\begin{align*}
 		i\hbar\frac{d}{dt}\ket{\psi(t)}&=\op{H}\ket{\psi(t)} &
 		\frac{d\expect{\op{A}}}{dt}&=\frac{i}{\hbar}\expect{[\op{H},\op{A}]}
