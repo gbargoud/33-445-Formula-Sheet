@@ -125,9 +125,13 @@
 	\mysection{Hamiltonian}
 	\begin{align*}
 		i\hbar\frac{d}{dt}\ket{\psi(t)}&=\op{H}\ket{\psi(t)} &
-		\frac{d\expect{\op{A}}}{dt}&=\frac{i}{\hbar}\expect{[\op{H},\op{A}]} &
-		\op{U(t)}\ket{\psi(0)}&=\ket{\psi(t)} &
-		\op{U(t)}&=e^{-i\op{H}\frac{t}{\hbar}}
+		\opt{H}&=\op{H} &
+		\frac{\partial\op{A}}{\partial t}=0&\Rightarrow
+			\frac{d\expect{\op{A}}}{dt}=
+			\frac{i}{\hbar}\expect{[\op{H},\op{A}]} &
+		\op{U(t)}\ket{\psi(0)}&=\ket{\psi(t)} \\
+		\frac{\partial\op{H}}{\partial t}=0&\Rightarrow
+			\op{U(t)}=e^{-i\op{H}\frac{t}{\hbar}}
 	\end{align*}
 	Constant $B_0$ in the $\vec{n}$ direction: 
 		$\op{H}=-\frac{qB_0}{mc}\op{S_n}=\omega_0\op{S_n}$
