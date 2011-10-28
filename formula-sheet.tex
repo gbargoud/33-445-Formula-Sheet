@@ -24,7 +24,7 @@
 % Transpose
 \newcommand{\tp}[1]{\ensuremath{#1^\dagger}}
 % Matrix, separate rows by \\ and columns by &
-\newcommand{\mat}[1]{\ensuremath{\begin{pmatrix}\ensuremath{#1}\end{pmatrix}}}
+\newcommand{\mat}[1]{\begin{pmatrix}\ensuremath{#1}\end{pmatrix}}
 
 \newcommand{\secend}{\vspace{-2em}}
 \begin{document}
@@ -38,7 +38,8 @@
 		\Delta\op{A}&=\sqrt{\expect{\op{A}^2}-\expect{\op{A}}^2} &
 		\op{U}\opt{U}&=1 & 
 		[\op{A},\op{B}]&=\op{A}\op{B}-\op{B}\op{A} &
-		\Delta\op{A}\Delta\op{B}&\ge\expect{\frac{[\op{A},\op{B}]}{2i}}
+		\Delta\op{A}\Delta\op{B}&\ge\expect{\frac{[\op{A},\op{B}]}{2i}} &
+		e^{\op{A}}&=\sum\limits_{n=0}^\infty\frac{\op{A}^n}{n!}
 	\end{align*}
 	% Properties of bra and ket
 	\mysection{Vector Properties}
@@ -128,4 +129,6 @@
 		\op{U(t)}\ket{\psi(0)}&=\ket{\psi(t)} &
 		\op{U(t)}&=e^{-i\op{H}\frac{t}{\hbar}}
 	\end{align*}
+	Constant $B_0$ in the $\vec{n}$ direction: 
+		$\op{H}=-\frac{qB_0}{mc}\op{S_n}=\omega_0\op{S_n}$
 \end{document}
